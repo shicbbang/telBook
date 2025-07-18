@@ -82,7 +82,16 @@ public class UserView {
 
     public void deleteView() {
         System.out.println("=== 전화번호 삭제 ===");
-    }
+        System.out.println("삭제할 ID 를 입력하세요.");
+        int deleteid = sc.nextInt();
+        int result = telBookService.deleteData(deleteid);
+        if (result > 0) {
+            System.out.println("정상적으로 삭제 되었습니다");
+        } else {
+            System.out.println("삭제 되지 않았습니다.");
+            System.out.println("관리자에게 문의 하세요");
+        }
+}
 
     public void findAllView() {
         List<TelDto> dtoList = new ArrayList<>();
